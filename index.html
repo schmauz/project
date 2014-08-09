@@ -1,0 +1,35 @@
+<html ng-app="tutorialApp">
+<head>
+    <meta charset="utf8" />
+    <title>AngularJS</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+</head>
+<body>
+
+<input type="text" ng-model="search">
+<p>Du suchst gerade nach: {{search}}</p><br />
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <!-- Table -->
+    <table class="table" ng-controller="ArticlesCtrl">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Preis</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="article in articles | filter:search">
+            <td>{{article.id}}</td>
+            <td>{{article.name}}</td>
+            <td>{{article.price + " €"}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="./assets/js/angularjs/1.2.20/angular.js"></script>
+<script src="./assets/js/app.js"></script>
+</body>
+</html>
